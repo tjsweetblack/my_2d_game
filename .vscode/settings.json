@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "get_map.h": "c",
+        "stdlib.h": "c"
+    }
+}
