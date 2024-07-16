@@ -6,22 +6,10 @@
 /*   By: badriano <badriano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:35:21 by badriano          #+#    #+#             */
-/*   Updated: 2024/07/13 16:24:14 by badriano         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:54:35 by badriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdbool.h>
-#include <ctype.h>
-#include <errno.h>
-#include <float.h>
-#include <limits.h>
-#include <math.h>
-#include <string.h>
-#include <stdio.h>
-#include <time.h>
-#include <fcntl.h>
-#include <stdlib.h>
 #include "get_map.h"
 
 char *left_str(char *chars_read, char *buf, int fd)
