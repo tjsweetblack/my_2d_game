@@ -39,7 +39,7 @@ LIBFT_MAKE = Makefile
 LIBFT_PATH = ${LIBFT_DIR}/libft.a
 
 # /* ~~~~~~~ INCLUDING MINILIBX ~~~~~~~ */
-MLX_DIR = mlx_linux
+MLX_DIR = minilibx-linux
 MLX_MAKE = Makefile
 MLX_PATH = ${MLX_DIR}/libmlx.a
 
