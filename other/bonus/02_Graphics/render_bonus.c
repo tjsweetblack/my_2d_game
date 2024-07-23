@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_bonus.c                                     :+:      :+:    :+:   */
+/*   render_game_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -40,7 +40,7 @@ void	display_walls_bonus(t_data *data, int width, int i, int j)
 			width, i * IMG_SIZE);
 }
 
-void	parse_chars(t_data *data, int width, int i, int j)
+void	chars_parse(t_data *data, int width, int i, int j)
 {
 	if (data->map.map[i][j] == '1')
 		displayWalls_bonus(data, width, i, j);
@@ -77,7 +77,7 @@ void	display_counter_window(t_data *data)
 		free(steps_count);
 }
 
-int	render_bonus(t_data *data)
+int	render_game_bonus(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -92,7 +92,7 @@ int	render_bonus(t_data *data)
 	{
 		while (data->map.map[i][j] && data->map.map[i][j] != '\n')
 		{
-			parse_chars(data, width, i, j);
+			chars_parse(data, width, i, j);
 			width += IMG_SIZE;
 			j++;
 			display_counter_window(data);

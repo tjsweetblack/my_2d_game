@@ -20,14 +20,14 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (check_extension(argv[1]) == FAILURE)
-			error_msg(ERRBER, &data);
+			msg_error(ERRBER, &data);
 		create_map(argv[1], &data);
 		init_map(&data);
-		check_map(&data);
+		map_check(&data);
 		init_player(&data);
 		init_window(&data);
 		init_images(&data);
-		render(&data);
+		render_game(&data);
 		loop_images(data);
 		destroy_images(data);
 		free(data.mlx);

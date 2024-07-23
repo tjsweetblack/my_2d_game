@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                  :+:      :+:    :+:   */
+/*   map_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../../includes/so_long.h"
 #include "../../includes/get_next_line.h"
 
-int	check_chars(t_data *data)
+int	chars_check(t_data *data)
 {
 	while (data->map.map[data->i])
 	{
@@ -36,7 +36,7 @@ int	check_chars(t_data *data)
 		return (SUCCESS);
 }
 
-int	check_top_bot(int row, char **map)
+int	chars_bot_top(int row, char **map)
 {
 	int	i;
 
@@ -50,13 +50,13 @@ int	check_top_bot(int row, char **map)
 	return (SUCCESS);
 }
 
-int	check_edges(int line_count, char **map)
+int	edges_check(int line_count, char **map)
 {
 	int	i;
 
 	i = 1;
-	if (check_top_bot(0, map) == FAILURE
-		|| check_top_bot(line_count, map) == FAILURE)
+	if (chars_bot_top(0, map) == FAILURE
+		|| chars_bot_top(line_count, map) == FAILURE)
 		return (FAILURE);
 	while (i < line_count)
 	{
@@ -67,7 +67,7 @@ int	check_edges(int line_count, char **map)
 	return (SUCCESS);
 }
 
-int	check_rectangle(t_data *data)
+int	rectangle_check(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -87,7 +87,7 @@ int	check_rectangle(t_data *data)
 	return (SUCCESS);
 }
 
-int	check_map(t_data *data)
+int	map_check(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -99,19 +99,19 @@ int	check_map(t_data *data)
 		while (j < ft_strlen(data->map.map[i]) - 1)
 		{
 			if (ft_strchr("01CEP", data->map.map[i][j]) == NULL)
-				error_msg(ERROTHER, data);
+				msg_error(ERROTHER, data);
 			j++;
 		}
 		j = 0;
 		i++;
 	}
-	if (check_chars(data) == FAILURE)
-		error_msg(ERRCHARS, data);
+	if (chars_check(data) == FAILURE)
+		msg_error(ERRCHARS, data);
 	if (data->map.count_p > 1)
-		error_msg(ERRPLAYER, data);
-	if (check_rectangle(data) == FAILURE)
-		error_msg(ERRREC, data);
-	if (check_edges(data->map.line_count - 1, data->map.map) == FAILURE)
-		error_msg(ERREDGES, data);
+		msg_error(ERRPLAYER, data);
+	if (rectangle_check(data) == FAILURE)
+		msg_error(ERRREC, data);
+	if (edges_check(data->map.line_count - 1, data->map.map) == FAILURE)
+		msg_error(ERREDGES, data);
 	return (SUCCESS);
 }

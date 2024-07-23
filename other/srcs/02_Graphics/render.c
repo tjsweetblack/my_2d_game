@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                     :+:      :+:    :+:   */
+/*   render_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../includes/so_long.h"
 
-void	parse_chars(t_data *data, int width, int i, int j)
+void	chars_parse(t_data *data, int width, int i, int j)
 {
 	if (data->map.map[i][j] == '1')
 		mlx_put_image_to_window(data->mlx, data->win, data->img.wall,
@@ -31,7 +31,7 @@ void	parse_chars(t_data *data, int width, int i, int j)
 			width, i * IMG_SIZE);
 }
 
-int	render(t_data *data)
+int	render_game(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -46,7 +46,7 @@ int	render(t_data *data)
 	{
 		while (data->map.map[i][j] && data->map.map[i][j] != '\n')
 		{
-			parse_chars(data, width, i, j);
+			chars_parse(data, width, i, j);
 			width += IMG_SIZE;
 			j++;
 		}

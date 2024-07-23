@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_msg_bonus.c                                  :+:      :+:    :+:   */
+/*   msg_error_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../../includes/so_long_bonus.h"
 #include "../../includes/get_next_line.h"
 
-void	error_msg_bonus(char *str, t_data *data)
+void	msg_error_bonus(char *str, t_data *data)
 {
 	if (data->map.map)
 		ft_free_bonus(data->map.map);

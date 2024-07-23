@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 09:06:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/21 16:11:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:26:51 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <fcntl.h>
 # include "get_next_line.h"
 # include "../libft/libft.h"
-# include "../mlx_linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
@@ -148,20 +148,20 @@ void	init_player(t_data *data);
 **  01_ERRORS
 **
 */
-void	error_msg(char *str, t_data *data);
+void	msg_error(char *str, t_data *data);
 int		check_extension(char *path);
-int		check_map(t_data *data);
-int		check_chars(t_data *data);
-int		check_rectangle(t_data *data);
-int		check_edges(int line_count, char **map);
-int		check_top_bot(int row, char **map);
+int		map_check(t_data *data);
+int		chars_check(t_data *data);
+int		rectangle_check(t_data *data);
+int		edges_check(int line_count, char **map);
+int		chars_bot_top(int row, char **map);
 /*
 **
 **  02_GRAPHICS
 **
 */
-int		render(t_data *data);
-void	parse_chars(t_data *data, int width, int i, int j);
+int		render_game(t_data *data);
+void	chars_parse(t_data *data, int width, int i, int j);
 int		init_window(t_data *data);
 void	init_images(t_data *data);
 void	loop_images(t_data data);
@@ -171,12 +171,12 @@ void	destroy_images(t_data data);
 **  03_EVENTS
 **
 */
-int		handle_keypress(int keysym, t_data *data);
-int		handle_btnrealease(t_data *data);
+int		key_handler(int keysym, t_data *data);
+int		realeasekey_handler(t_data *data);
 void	move_msg(t_data *data);
-void	move_player(t_data *data, char direction);
-void	collect_coins(t_data *data, char direction);
-int		win_game(t_data *data);
+void	move_the_player(t_data *data, char direction);
+void	collect_the_coins(t_data *data, char direction);
+int		game_win(t_data *data);
 int		check_next_tile(t_data *data, char direction, char tile);
 
 #endif

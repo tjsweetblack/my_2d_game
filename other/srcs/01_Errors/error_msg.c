@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_msg.c                                  :+:      :+:    :+:   */
+/*   msg_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../../includes/so_long.h"
 #include "../../includes/get_next_line.h"
 
-void	error_msg(char *str, t_data *data)
+void	msg_error(char *str, t_data *data)
 {
 	if (data->map.map)
 		ft_free(data->map.map);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 12:19:40 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/21 15:45:28 by msanjuan         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:07:53 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <fcntl.h>
 # include "get_next_line.h"
 # include "../libft/libft.h"
-# include "../mlx_linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
@@ -187,22 +187,22 @@ void	init_players_bonus(t_data *data);
 **  01_ERRORS
 **
 */
-void	error_msg_bonus(char *str, t_data *data);
+void	msg_error_bonus(char *str, t_data *data);
 int		check_extension_bonus(char *path);
-int		check_map_bonus(t_data *data);
-int		check_chars_bonus(t_data *data);
-int		check_rectangle_bonus(t_data *data);
-int		check_edges_bonus(int line_count, char **map);
-int		check_top_bot_bonus(int row, char **map);
+int		map_check_bonus(t_data *data);
+int		chars_check_bonus(t_data *data);
+int		rectangle_check_bonus(t_data *data);
+int		edges_check_bonus(int line_count, char **map);
+int		chars_bot_top_bonus(int row, char **map);
 /*
 **
 **  02_GRAPHICS
 **
 */
 void	img_pix_put_bonus(t_img *img, int x, int y, int color);
-int		render_bonus(t_data *data);
+int		render_game_bonus(t_data *data);
 int		coin_sprite_bonus(t_data *data, int width, int i);
-void	parse_chars(t_data *data, int width, int i, int j);
+void	chars_parse(t_data *data, int width, int i, int j);
 void	display_walls_bonus(t_data *data, int width, int i, int j);
 int		init_window_bonus(t_data *data);
 void	init_images_bonus(t_data *data);
@@ -219,15 +219,15 @@ void	flames_sprite4(t_data *data, int width, int i);
 **  03_EVENTS
 **
 */
-int		handle_keypress_bonus(int keysym, t_data *data);
+int		key_handler_bonus(int keysym, t_data *data);
 int		handle_resize_bonus(t_data *data);
-int		handle_btnrealease_bonus(t_data *data);
+int		realeasekey_handler_bonus(t_data *data);
 void	move_msg_bonus(t_data *data);
-void	move_player_bonus(t_data *data, char direction);
+void	move_the_player_bonus(t_data *data, char direction);
 int		checkCollision_bonus(t_data *data, char direction);
-void	collect_coins_bonus(t_data *data, char direction);
+void	collect_the_coins_bonus(t_data *data, char direction);
 int		crossExit_bonus(t_data *data, char direction);
-int		win_game_bonus(t_data *data);
+int		game_win_bonus(t_data *data);
 int		check_next_tile_bonus(t_data *data, char direction, char tile);
 int		check_next_tile_foe_bonus(t_data *data, int direction, char tile);
 int		lose_game_bonus(t_data *data);

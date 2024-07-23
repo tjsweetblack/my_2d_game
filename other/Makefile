@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
+#    By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 12:17:43 by msanjuan          #+#    #+#              #
-#    Updated: 2021/12/21 16:12:39 by msanjuan         ###   ########.fr        #
+#    Updated: 2024/07/23 13:26:51 by belmiro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,12 @@ SRCS = 00_Init_Parsing/create_map.c \
 	00_Init_Parsing/init_players.c \
 	01_Errors/check_ber.c \
 	01_Errors/check_map.c \
-	01_Errors/error_msg.c \
+	01_Errors/msg_error.c \
 	02_Graphics/render.c \
 	02_Graphics/mlx_utils.c \
 	03_Events/handlers.c \
 	03_Events/moves.c \
 	03_Events/move_msg.c \
-
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 
 # /* ~~~~~~~ INCLUDING GNL ~~~~~~~ */
@@ -61,9 +60,9 @@ BONUS_SRCS = 00_Init_Parsing/create_map_bonus.c \
 	00_Init_Parsing/init_map_bonus.c \
 	00_Init_Parsing/init_players_bonus.c \
 	01_Errors/check_ber_bonus.c \
-	01_Errors/check_map_bonus.c \
-	01_Errors/error_msg_bonus.c \
-	02_Graphics/render_bonus.c \
+	01_Errors/map_check_bonus.c \
+	01_Errors/msg_error_bonus.c \
+	02_Graphics/render_game_bonus.c \
 	02_Graphics/mlx_utils_bonus.c \
 	02_Graphics/move_sprites_bonus.c \
 	02_Graphics/init_sprites_bonus.c \
@@ -103,7 +102,7 @@ clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)
 		@${RM} ${OBJS}
 		@${RM} ${B_OBJS}
-		@${RM} -r ${OBJ_DIR} 
+		@${RM} -r ${OBJ_DIR}
 		@make -C ${LIBFT_DIR} -f ${LIBFT_MAKE} clean
 
 fclean: clean

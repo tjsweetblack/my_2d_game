@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:38:14 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/21 15:36:25 by msanjuan         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:07:53 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (check_extension_bonus(argv[1]) == FAILURE)
-			error_msg_bonus(ERRBER, &data);
+			msg_error_bonus(ERRBER, &data);
 		create_map_bonus(argv[1], &data);
 		init_map_bonus(&data);
-		check_map_bonus(&data);
+		map_check_bonus(&data);
 		init_players_bonus(&data);
 		init_window_bonus(&data);
 		init_images_bonus(&data);
-		render_bonus(&data);
+		render_game_bonus(&data);
 		loop_images_bonus(data);
 		destroy_images_bonus(data);
 		free(data.mlx);

@@ -43,10 +43,10 @@ void	init_images(t_data *data)
 
 void	loop_images(t_data data)
 {
-	mlx_loop_hook(data.mlx, &render, &data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, &handle_keypress, &data);
+	mlx_loop_hook(data.mlx, &render_game, &data);
+	mlx_hook(data.win, KeyPress, KeyPressMask, &key_handler, &data);
 	mlx_hook(data.win, ClientMessage, LeaveWindowMask,
-		&handle_btnrealease, &data);
+		&realeasekey_handler, &data);
 	mlx_loop(data.mlx);
 }
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_bonus.c                                  :+:      :+:    :+:   */
+/*   map_check_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../../includes/so_long_bonus.h"
 #include "../../includes/get_next_line.h"
 
-int	check_chars_bonus(t_data *data)
+int	chars_check_bonus(t_data *data)
 {
 	while (data->map.map[data->i])
 	{
@@ -38,7 +38,7 @@ int	check_chars_bonus(t_data *data)
 		return (SUCCESS);
 }
 
-int	check_top_bot_bonus(int row, char **map)
+int	chars_bot_top_bonus(int row, char **map)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ int	check_top_bot_bonus(int row, char **map)
 	return (SUCCESS);
 }
 
-int	check_edges_bonus(int line_count, char **map)
+int	edges_check_bonus(int line_count, char **map)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ int	check_edges_bonus(int line_count, char **map)
 	return (SUCCESS);
 }
 
-int	check_rectangle_bonus(t_data *data)
+int	rectangle_check_bonus(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -89,7 +89,7 @@ int	check_rectangle_bonus(t_data *data)
 	return (SUCCESS);
 }
 
-int	check_map_bonus(t_data *data)
+int	map_check_bonus(t_data *data)
 {
 	int		i;
 	size_t	j;
@@ -101,19 +101,19 @@ int	check_map_bonus(t_data *data)
 		while (j < ft_strlen(data->map.map[i]) - 1)
 		{
 			if (ft_strchr("01CEPF", data->map.map[i][j]) == NULL)
-				error_msg_bonus(ERROTHER, data);
+				msg_error_bonus(ERROTHER, data);
 			j++;
 		}
 		j = 0;
 		i++;
 	}
-	if (check_chars_bonus(data) == FAILURE)
-		error_msg_bonus(ERRCHARS, data);
+	if (chars_check_bonus(data) == FAILURE)
+		msg_error_bonus(ERRCHARS, data);
 	if (data->map.count_p > 1 || data->map.count_f > 1)
-		error_msg_bonus(ERRPLAYERB, data);
+		msg_error_bonus(ERRPLAYERB, data);
 	if (checkRectangle_bonus(data) == FAILURE)
-		error_msg_bonus(ERRREC, data);
+		msg_error_bonus(ERRREC, data);
 	if (checkEdges_bonus(data->map.line_count - 1, data->map.map) == FAILURE)
-		error_msg_bonus(ERREDGES, data);
+		msg_error_bonus(ERREDGES, data);
 	return (SUCCESS);
 }

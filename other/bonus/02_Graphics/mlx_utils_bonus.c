@@ -55,10 +55,10 @@ void	init_images_bonus(t_data *data)
 
 void	loop_images_bonus(t_data data)
 {
-	mlx_loop_hook(data.mlx, &render_bonus, &data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, &handle_keypress_bonus, &data);
+	mlx_loop_hook(data.mlx, &render_game_bonus, &data);
+	mlx_hook(data.win, KeyPress, KeyPressMask, &key_handler_bonus, &data);
 	mlx_hook(data.win, ClientMessage, LeaveWindowMask,
-		&handle_btnrealease_bonus, &data);
+		&realeasekey_handler_bonus, &data);
 	mlx_loop(data.mlx);
 }
 

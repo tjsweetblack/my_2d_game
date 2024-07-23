@@ -31,7 +31,7 @@ int	check_next_tile(t_data *data, char direction, char tile)
 **	Function that checks that, when the player moves, the next tile is a coin.
 **	Should it be the case, the counter of all the collected coins increases.
 */
-void	collect_coins(t_data *data, char direction)
+void	collect_the_coins(t_data *data, char direction)
 {
 	if ((direction == 'd' && data->map.map[data->p_i][data->p_j + 1] == 'C')
 		|| (direction == 'a' && data->map.map[data->p_i][data->p_j - 1] == 'C')
@@ -44,7 +44,7 @@ void	collect_coins(t_data *data, char direction)
 **	Function that quits the game when the player steps on the exit and has
 **	collected all the coins in the map.
 */
-int	win_game(t_data *data)
+int	game_win(t_data *data)
 {
 	if (data->map.can_exit == 1)
 	{
@@ -60,14 +60,14 @@ int	win_game(t_data *data)
 **	Function which is the "hub" of all the (non)possible moves of the player.
 **	Also counts and display the players's steps counter. 
 */
-void	move_player(t_data *data, char direction)
+void	move_the_player(t_data *data, char direction)
 {
 	if (check_next_tile(data, direction, '1') == SUCCESS
 		|| (data->map.can_exit == 0
 			&& check_next_tile(data, direction, 'E') == SUCCESS))
 		return ;
 	data->steps_count++;
-	collect_coins(data, direction);
+	collect_the_coins(data, direction);
 	if (data->map.collected == data->map.count_c)
 		data->map.can_exit = 1;
 	data->map.map[data->p_i][data->p_j] = '0';
@@ -81,6 +81,6 @@ void	move_player(t_data *data, char direction)
 		data->p_i--;
 	move_msg(data);
 	if (data->map.can_exit == 1 && data->map.map[data->p_i][data->p_j] == 'E')
-		win_game(data);
+		game_win(data);
 	data->map.map[data->p_i][data->p_j] = 'P';
 }

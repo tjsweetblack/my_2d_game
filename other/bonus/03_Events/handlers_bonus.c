@@ -14,11 +14,11 @@
 
 int	handle_resize_bonus(t_data *data)
 {
-	render_bonus(data);
+	render_game_bonus(data);
 	return (0);
 }
 
-int	handle_keypress_bonus(int keysym, t_data *data)
+int	key_handler_bonus(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
 	{
@@ -33,7 +33,7 @@ int	handle_keypress_bonus(int keysym, t_data *data)
 	return (0);
 }
 
-int	handle_btnrealease_bonus(t_data *data)
+int	realeasekey_handler_bonus(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	data->win = NULL;

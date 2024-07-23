@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   create_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 14:42:52 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/21 14:05:12 by msanjuan         ###   ########.fr       */
+/*   Created: 2024/07/23 12:38:37 by belmiro           #+#    #+#             */
+/*   Updated: 2024/07/23 12:38:41 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../includes/so_long_bonus.h"
 #include "../../includes/get_next_line.h"
