@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"mlx.h": "c",
+		"get_map.h": "c"
+	}
+}
