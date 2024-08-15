@@ -33,6 +33,10 @@
 #  define BUFFER_SIZE 42
 # endif
 
+/*typedef struct t_coin
+{
+	int			total_coin;
+}				t_coin;*/
 
 
 typedef struct t_image
@@ -49,6 +53,8 @@ typedef struct t_game
 	void		*init;
 	void		*window;
 	char		**map;
+	int			move_count;
+	//t_coin		coin;
 	t_image		image;
 	//t_player	player;
 	//t_coin	coin;
@@ -77,11 +83,6 @@ typedef struct t_wall
 
 
 
-typedef struct t_coin
-{
-	void		*init;
-	void		*window;
-}				t_coin;
 
 */
 //----------store map in a matrix----------------
@@ -94,12 +95,11 @@ char	*ft_strjoin(char *s1, char *s2);
 int		*ft_map_size(char **map); // return matrix position[y.length][x.length]
 int		ft_check_map_error(char **map, int *size);// validate all map error
 //--------------run map veriication--------------
-void	render_map(t_game game);
+int	render_map(t_game *game);
 void	store_to_struct(t_game *game);
 //-------------events-------------------------
 int move_player(int key_sym, void *param);
 int	close_game(int Key_sym, void *param);
-void	end_of_game(t_game *game, int x, int y);
-
-
+int	end_of_game(t_game *game, int x, int y);
+int is_map_playable(char **map);
 #endif

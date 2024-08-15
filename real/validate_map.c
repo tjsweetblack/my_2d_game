@@ -6,7 +6,7 @@
 /*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:44:56 by badriano          #+#    #+#             */
-/*   Updated: 2024/08/13 10:45:30 by belmiro          ###   ########.fr       */
+/*   Updated: 2024/08/15 13:08:27 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,9 @@ int	ft_is_rectangle(char **map, int *size)
 }
 int	ft_check_map_error(char **map, int *size)
 {
-	if (ft_is_rectangle(map, size) == 1)
-		return (1); // everything is good
+	if ((ft_is_rectangle(map, size) == 1) &&(is_map_playable(map) == 1))
+		return (1);// everything is good
+	else
+		printf("not a valid map");
 	return (0);     // error
 }

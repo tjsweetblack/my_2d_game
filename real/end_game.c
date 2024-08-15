@@ -6,7 +6,7 @@
 /*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 11:58:01 by belmiro           #+#    #+#             */
-/*   Updated: 2024/08/14 13:21:21 by belmiro          ###   ########.fr       */
+/*   Updated: 2024/08/15 09:59:05 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,32 @@ int	close_game(int Key_sym, void *param)
 
 	if(Key_sym == XK_Escape)
 	{
-		printf("escape");
 		mlx_destroy_window(game->init, game->window);
 		game->window = NULL;
 	}
 	return(0);
 }
 
-void	end_of_game(t_game *game, int x, int y)
+int	end_of_game(t_game *game, int x, int y)
 {
+	char	**map;
 	int	i;
 	int	j;
-	int coin;
-	char	**map;
+	int	coin = 0;
+	int	flag;
 
 	j = 0;
 	i = 0;
+	flag = 0;
 	map = game->map;
 	while(map[i])
 	{
+		j = 0;
 		while(map[i][j])
 		{
 			if(map[i][j] == 'C')
 			{
-				coin++;
+				coin = 1;
 			}
 			j++;
 		}
@@ -51,7 +53,9 @@ void	end_of_game(t_game *game, int x, int y)
 	}
 	if((map[y][x] == 'E') && (coin == 0))
 	{
+		flag = 1;
 		mlx_destroy_window(game->init, game->window);
 		game->window = NULL;
 	}
+	return(flag);
 }

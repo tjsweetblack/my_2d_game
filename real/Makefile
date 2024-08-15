@@ -6,7 +6,7 @@
 #    By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 11:48:27 by badriano          #+#    #+#              #
-#    Updated: 2024/08/13 11:44:57 by belmiro          ###   ########.fr        #
+#    Updated: 2024/08/15 09:44:52 by belmiro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ = $(COMMON_SRC:.c=.o) #$(MAIN:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -L$(MINILBX_DIR) -lmlx -lX11 -lm -lXext -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -L$(MINILBX_DIR) -lmlx -lX11 -lXext -o $(NAME)
 	@echo "Program is ready!!"
 
 %.o: %.c
