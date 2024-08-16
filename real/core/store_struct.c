@@ -6,11 +6,11 @@
 /*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:38:47 by belmiro           #+#    #+#             */
-/*   Updated: 2024/08/15 09:22:59 by belmiro          ###   ########.fr       */
+/*   Updated: 2024/08/16 10:08:26 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_map.h"
+#include "../includes/so_long.h"
 
 void	store_to_struct(t_game *game)
 {

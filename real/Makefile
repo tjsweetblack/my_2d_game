@@ -6,21 +6,20 @@
 #    By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 11:48:27 by badriano          #+#    #+#              #
-#    Updated: 2024/08/15 09:44:52 by belmiro          ###   ########.fr        #
+#    Updated: 2024/08/16 08:48:55 by belmiro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
-#UTILS_DIR = ./utils
-#SORT_DIR = ./sorting
-#RULES_DIR = ./operations
-#ERRORS_DIR = ./errors
+UTILS_DIR = ./utils
+CORE_DIR = ./core
+ERRORS_DIR = ./errors
 MINILBX_DIR = ./minilibx_linux
 MINILIB_LIB = libmlx.a
 #MAIN = main.c
-COMMON_SRC = $(wildcard ./*.c) # Expands to all .c files in directories
+COMMON_SRC = $(wildcard ./*c $(ERRORS_DIR)/*.c $(CORE_DIR)/*.c $(UTILS_DIR)/*.c) # Expands to all .c files in directories
 OBJ = $(COMMON_SRC:.c=.o) #$(MAIN:.c=.o)
 
 all: $(NAME)

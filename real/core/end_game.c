@@ -6,11 +6,11 @@
 /*   By: belmiro <belmiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 11:58:01 by belmiro           #+#    #+#             */
-/*   Updated: 2024/08/15 09:59:05 by belmiro          ###   ########.fr       */
+/*   Updated: 2024/08/16 10:07:58 by belmiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_map.h"
+#include "../includes/so_long.h"
 
 int	close_game(int Key_sym, void *param)
 {
@@ -26,32 +26,38 @@ int	close_game(int Key_sym, void *param)
 	return(0);
 }
 
-int	end_of_game(t_game *game, int x, int y)
+int	number_of_coins(t_game *game)
 {
-	char	**map;
 	int	i;
 	int	j;
-	int	coin = 0;
-	int	flag;
+	int	coin;
 
 	j = 0;
 	i = 0;
-	flag = 0;
-	map = game->map;
-	while(map[i])
+	coin = 0;
+	while(game->map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while(game->map[i][j])
 		{
-			if(map[i][j] == 'C')
-			{
+			if(game->map[i][j] == 'C')
 				coin = 1;
-			}
 			j++;
 		}
 		i++;
 	}
-	if((map[y][x] == 'E') && (coin == 0))
+	return(coin);
+}
+
+int	end_of_game(t_game *game, int x, int y)
+{
+
+	int	coin;
+	int	flag;
+
+	flag = 0;
+	coin = number_of_coins(game);
+	if((game->map[y][x] == 'E') && (coin == 0))
 	{
 		flag = 1;
 		mlx_destroy_window(game->init, game->window);
